@@ -1,0 +1,23 @@
+{
+	"hosts_info|8-20":
+	[
+		{
+			"controller_ip":"@ip",
+			"instance_cnt|1-60": 1,
+			"instance_total": 60,
+			"cpu_idle|1-100.1-10": 1,
+			"h_cpu|1": [24, 36, 48, 72],
+			"memory_gb": 64,
+			"memory_gb_used|1-64": 1,
+			"node_name": "咸丰县活龙坪乡水坝小学",
+			"disk_gb": 100.234234234,
+			"disk_gb_used|1-100.1-100": 1
+		}
+	],
+	"page_info": {
+		"count": 20,
+		"limit": 2,
+		"num_pages": 10,
+		"page": 1
+	}
+}

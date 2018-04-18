@@ -1,0 +1,18 @@
+{
+	"results|20":[
+		{
+            "id|+1":1,
+			"school_type|1": ["幼儿园", "小学", "初中", "高中", "大学"],
+			"login_number|10-100": 1,
+			"client_cnt|10-100" : 1,
+			"avg_login_number": 2
+		}
+	],
+   "page_info": 
+	{
+		"count": 20,
+		"limit": 20,
+		"num_pages": 10,
+		"page": 1
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"code" : 0,
+	"info" :
+	{
+		"host_master|10-40": 1,
+		"host_master_total" : 40,
+		"host_running|10-35": 1,
+		"host_shutdown": 1,
+		"host_total": 40,
+		"mode_instance_cnt": 20,
+		"person_instance_cnt": 20,
+		"mode_instance_running|4-16":2,
+		"person_instance_running|4-16":2,
+		"mode_instance_shutdown":2,
+		"person_instance_shudown":2,
+		"schoolroom_cnt": 2,
+		"client_cnt": 19,
+		"cpu_cnt": 14,
+		"cpu_v_running|5-20": 1,
+		"cpu_v_total": 20,
+		"mem_remain": 30,
+		"mem_used|10-30": 1,
+		"memory_cnt": 47,
+		"disk_remain": 50,
+		"disk_used|10-30": 1,
+		"disk_cnt": 90
+	}
+}

@@ -1,0 +1,91 @@
+<div class="view-content" ng-controller="HostMonitorController">
+	<div class="view-content-left">
+		<group-tree></group-tree>
+	</div>
+	<div class="view-content-center">
+		<div class="view-toolbar form-inline">
+			<div class="form-group">
+				<label>当前监控：{{group_breadcrumb}}</label>
+				<input type="text" class="form-control" style="visibility: hidden;">
+			</div>
+			
+			<div class="pull-right">
+				<div class="form-group"><label>主机IP：</label>
+					<select ng-model="current_host" class="form-control" ng-options="t.controller_ip for t in hosts"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">CPU 占用率</div>
+					<div class="panel-body" highchart data-options="cpu_chart_options"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">内存</div>
+					<div class="panel-body" highchart data-options="mem_chart_options"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading form-inline">网络上下行流量
+						<select ng-model="current_netcard" ng-change="onNetcardChange(current_netcard)" ng-options="n for n in netcards"></select>
+					</div>
+					<div class="panel-body" highchart data-options="net_chart_options"></div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">磁盘读写速度
+						<select ng-model="current_disk" ng-change="onDiskChange(current_disk)" ng-options="n for n in disks"></select>
+					</div>
+					<div class="panel-body" highchart data-options="disk_chart_options"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">进程</div>
+					<div class="panel-body">
+						<div class="table-responsive process-table">
+	                        <table class="table table-striped table-condensed table-hover"
+	                    width="100%">
+	                            <thead>
+	                                <tr>
+	                                    <th>PID</th>
+	                                    <th>USER</th>
+	                                    <!--<th>PR</th>-->
+	                                    <!--<th>NI</th>-->
+	                                    <!--<th>VIRT</th>-->
+	                                    <!--<th>RES</th>-->
+	                                    <!--<th>SHR</th>-->
+	                                    <!--<th>S</th>-->
+	                                    <th>CPU</th>
+	                                    <th>MEM</th>
+	                                    <th>TIME+</th>
+	                                    <th>COMMAND</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr data-ng-repeat="item in process_list">
+	                                    <td>{{ item.pid }}</td>
+	                                    <td>{{ item.username }}</td>
+	                                    <!--<td>{{item.pr }}</td>-->
+	                                    <!--<td>{{ item.ni }}</td>-->
+	                                    <!--<td>{{ item.virt }}</td>-->
+	                                    <!--<td>{{ item.res }}</td>-->
+	                                    <!--<td>{{ item.shr }}</td>-->
+	                                    <!--<td>{{ item.s}}</td>-->
+	                                    <td>{{ item.cpu_percent }}%</td>
+	                                    <td>{{ (item.memory_percent).toFixed(2) }}%</td>
+	                                    <td>{{ item.create_time * 1000 | date: "yy-MM-dd HH:mm:ss" }}</td>
+	                                    <td>{{ item.name}}</td>
+	                                </tr>
+	                            </tbody>
+	                        </table>
+	                    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+{
+ 	"code":0, 
+	"users|20":[
+		{
+			"id|+1": 1,
+			"username": "@cword(3)",
+			"full_name": "chenxiaohu",
+			"email":"@email",
+			"tel":"13554292452"
+		}
+	],
+ 	"page_info": 
+	{
+		"count": 20,
+		"limit": 20,
+		"num_pages": 10,
+		"page": 1
+	}
+}

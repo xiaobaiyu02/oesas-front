@@ -1,0 +1,88 @@
+html,body{
+	background:none;
+	height:100%;
+	width:100%;
+	overflow:hidden;
+}
+html{
+	background:url(/static/images/login_bg.jpg) center center;
+}
+body{
+
+	position:relative;
+}
+.login_wrapper{
+	width:600px;
+	height:255px;
+	position:absolute;
+	margin:auto;
+	top:0px;
+	right:0px;
+	left:0px;
+	bottom:0px;
+}
+.login_logo{
+	height:55px;
+	margin-top:2px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:20px;
+    text-align:center;
+}
+.login_logo.login_logo_cn{
+	width:316px;
+	background:url(img/skin0/login_masker.png) no-repeat;
+}
+.login_logo.login_logo_en{
+	width:435px;
+	background:url(img/skin0/login_masker_en.png) no-repeat;
+}
+.smart-form{
+    margin-left:50px;
+}
+.smart-form fieldset,
+.smart-form footer{
+	background:none;
+}
+.smart-form footer{
+	border:0 none;
+}
+.copyright{
+	text-align:center;
+	color:#fff;
+    margin-top:40px;
+    margin-left:-23px;
+}
+.copyright p{
+	margin:0;
+}
+.copyright a{
+	color:#fff;
+}
+.smart-form fieldset label.input{
+	display:inline-block;
+	margin:8px;
+}
+.smart-form button{
+	display:inline-block;
+	width:80px;
+	height:32px;
+}
+table.layout td{
+	padding:36px 8px;
+}
+
+.version{
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    color:#FFFFFF;
+}
+
+.right_bottom{
+    position:fixed;
+    right:0;
+    bottom:0;
+    color:lightgrey;
+    margin-right:15px;
+}

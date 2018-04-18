@@ -1,0 +1,36 @@
+{
+	"schooltypes": [
+		{
+			"id": 1,
+			"name": "幼儿园",
+			"desc": ""
+		},
+		{
+			"id": 2,
+			"name": "小学",
+			"desc": ""
+		},
+		{
+			"id": 3,
+			"name": "初中",
+			"desc": ""
+		},
+		{
+			"id": 4,
+			"name": "高中",
+			"desc": ""
+		},
+		{
+			"id": 5,
+			"name": "大学",
+			"desc": ""
+		}
+	],
+	"page_info": 
+	{
+		"count": 20,
+		"limit": 2,
+		"num_pages": 10,
+		"page": 1
+	}
+}

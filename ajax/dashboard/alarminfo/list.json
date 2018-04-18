@@ -1,0 +1,16 @@
+{
+	"alarm_info|20": [{
+		"school_name": "@cword(3,5)学校",
+		"controller_ip": "@ip",
+		"content": "@csentence(5, 10)",
+		"time": "@datetime",
+		"area|+1": ["活龙坪乡", "龙坪乡", "唐崖镇", "丁赛乡", "咸丰县", "高乐山镇", "朝阳寺镇", "高乐山镇", "坪坝营镇"],
+		"node_type|1": ["幼儿园", "小学", "初中", "高中", "大学"] 
+	}],
+	"page_info": {
+		"count": 20,
+		"limit": 30,
+		"num_pages": 10,
+		"page": 1
+	}
+}

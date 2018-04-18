@@ -1,0 +1,51 @@
+<div class="view-content" ng-controller="HostController">
+	<div class="view-content-left">
+		<group-tree></group-tree>
+	</div>
+	<div class="view-content-center">
+		<div class="view-toolbar form-inline">
+			<school-type></school-type>
+			<school-name></school-name>
+			<div class="pull-right">
+				<pagesize></pagesize>
+			</div>
+		</div>
+		<div class="item-wrapper clearfix">
+			<div ng-repeat="item in hosts">
+				<h3 class="title" ng-bind="item.node_name"></h3>
+				<p class="ip" ng-bind="item.controller_ip"></p>
+				<div class="info">
+					<p>桌面 <span class="pull-right"><b ng-bind="item.instance_total"></b> 个</span></p>
+					<div class="light-progress">
+						<div ng-style="{width: item.instance_rate + '%', 'background-color': item.instance_color}"></div>
+					</div>
+				</div>
+				<div class="info">
+					<p>CPU <span class="pull-right"><b ng-bind="item.h_cpu"></b> 核</span></p>
+					<div class="light-progress">
+						<div ng-style="{width: item.cpu_rate + '%', 'background-color': item.cpu_color}"></div>
+					</div>
+				</div>
+				<div class="info">
+					<p>内存 <span class="pull-right"><b ng-bind="item.memory_gb"></b> GB</span></p>
+					<div class="light-progress">
+						<div ng-style="{width: item.mem_rate + '%', 'background-color': item.mem_color}"></div>
+					</div>
+				</div>
+				<div class="info">
+					<p>存储 <span class="pull-right"><b ng-bind="item.disk_gb"></b> GB</span></p>
+					<div class="light-progress">
+						<div ng-style="{width: item.disk_rate + '%', 'background-color': item.disk_color}"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="view-toolbar">
+			<div class="pull-right">
+				<pager></pager>
+			</div>
+			<page-info></page-info>
+		</div>
+	</div>
+	
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "vdiMAS-front",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "build": "node ./bin/build",
+    "min": "node ./bin/min"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "browserify": "^13.1.0",
+    "cheerio": "^0.22.0",
+    "chokidar": "^1.6.0",
+    "clean-css": "^3.4.20",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "html-minifier": "^3.0.3",
+    "minimist": "^1.2.0",
+    "mockjs": "^1.0.1-beta3",
+    "morgan": "~1.6.1",
+    "uglify-js": "^2.7.3"
+  }
+}

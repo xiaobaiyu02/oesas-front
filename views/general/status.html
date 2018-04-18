@@ -1,0 +1,54 @@
+<div class="global-status view-content" ng-controller="GlobalStatusController">
+	<div class="row">
+		<ul class="status-list pull-right">
+			<li class="node"><i class="fa-fw fa icon-jj-host"></i>主控节点 <b>{{host_master}}</b> 台<br/>计算节点 <b>{{host_running}}</b> 台</li>
+			<li class="desktop"><i class="fa icon-jj-pc fa-fw "></i>教学桌面 <b>{{mode_instance_running + mode_instance_shutdown}}</b> 个<br/>个人桌面 <b>{{person_instance_running + person_instance_shutdown}}</b> 个</li>
+			<li class="room"><i class="fa-fw fa icon-jj-Terminal"></i>教室 <b>{{schoolroom_cnt}}</b> 个<br/>终端 <b>{{client_cnt}}</b> 台</li>
+		</ul>
+	</div>
+	<div class="row">
+		<h2>云教室信息统计</h2>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h3 class="title">学校数</h3>
+			<span class="info">在线 {{host_master}} 个</span>
+			<div class="chart" simple-pie data-title="学校" data-items="在线:{{host_master}},离线:{{host_master_total-host_master}}"></div>
+			<span class="footer">共 {{host_master_total}} 个</span>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h3 class="title">主机数</h3>
+			<span class="info">在线 {{host_running}} 台</span>
+			<div class="chart" simple-pie data-title="主机" data-items="在线:{{host_running}},离线:{{host_total-host_running}}"></div>
+			<span class="footer">共 {{host_total}} 台</span>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h3 class="title">桌面数</h3>
+			<span class="info">在线 {{mode_instance_running + person_instance_running}} 个</span>
+			<div class="chart" simple-pie data-title="桌面" data-items="在线:{{mode_instance_running + person_instance_running}},离线:{{mode_instance_shutdown+ person_instance_shutdown}}"></div>
+			<span class="footer">共 {{mode_instance_running + mode_instance_shutdown  + person_instance_running  + person_instance_shutdown}} 个</span>
+		</div>
+	</div>
+	<div class="row">
+		<h2>云教室资源统计</h2>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h3 class="title">CPU</h3>
+			<span class="info">总共 {{cpu_cnt}} 个物理核心</span>
+			<span class="info">运行 {{cpu_v_running}} 个虚拟核心</span>
+			<div class="chart" style="font-size:8em;text-align:center;font-weight:700;">1:{{(cpu_v_running/cpu_cnt).toFixed(1)}}</div>
+			<span class="footer">总虚拟核心 {{cpu_v_total}} 个</span>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h3 class="title">内存</h3>
+			<span class="info">已用 {{mem_used}} GB</span>
+			<span class="info">剩余 {{memory_cnt - mem_used}} GB</span>
+			<div class="chart" simple-pie data-title="内存" data-items="已用:{{mem_used}},剩余:{{memory_cnt - mem_used}}"></div>
+			<span class="footer">总容量 {{memory_cnt}} GB</span>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h3 class="title">存储</h3>
+			<span class="info">已用 {{disk_used}} GB</span>
+			<span class="info">剩余 {{disk_cnt - disk_used}} GB</span>
+			<div class="chart" simple-pie data-title="存储" data-items="已用:{{disk_used}},剩余:{{disk_cnt - disk_used}}"></div>
+			<span class="footer">总容量 {{disk_cnt}} GB</span>
+		</div>
+	</div>
+</div>

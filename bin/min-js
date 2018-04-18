@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+
+var UglifyJS = require('uglify-js');
+var path = require('path');
+var fs = require('fs');
+var crypto = require('crypto');
+var config = require('../config');
+
+var supportVariables = {
+	md5: function(buf){
+		var md5 = crypto.createHash('md5');
+		md5.update(buf);
+		return md5.digest('hex');
+	},
+	date: function(){
+		return Date.now();
+	}
+};
+
+var projectRoot = path.join(__dirname, '../');
+
+function minify(src, dest) {
+	var result, sourcemapfile;
+	// replace variable in filename
+	dest = replaceVar(dest, fs.readFileSync(src));
+	sourcemapfile = dest + ".map";
+	result = UglifyJS.minify(src, {
+		outSourceMap: sourcemapfile
+	});
+	fs.writeFileSync(dest, result.code);
+	console.log('generate', dest.replace(projectRoot, ''), 'success');
+	fs.writeFileSync(sourcemapfile, result.map);
+	console.log('generate', sourcemapfile.replace(projectRoot, ''), 'success');
+}
+
+function main() {
+	var bundle = config.bundle, key, obj, bundlefile, target;
+	for(key in bundle) {
+		obj = bundle[key];
+		bundlefile = obj.dest;
+		target = obj.destMin;
+		if(!path.isAbsolute(bundlefile)) {
+			bundlefile = path.join(projectRoot, bundlefile);
+		}
+		if(!path.isAbsolute(target)) {
+			target = path.join(projectRoot, target);
+		}
+		if(!fs.existsSync(bundlefile)) {
+			console.log("please run \"npm build\" first");
+			return;
+		}
+		minify(bundlefile, target);
+	}
+}
+
+function replaceVar(file, buf) {
+	file = file.replace(/\{(.*?)\}/g, function(all, key){
+		if(supportVariables.hasOwnProperty(key)) {
+			return supportVariables[key](buf);
+		} else {
+			return '';
+		}
+	});
+	return file;
+}
+
+if(require.main === module) {
+	main();
+}

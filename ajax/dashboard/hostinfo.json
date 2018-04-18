@@ -1,0 +1,9 @@
+{
+	"hosts_list|3-5": [
+		{
+			"controller_ip":"@ip",
+		    "id": "@id",
+			"node_name": "咸丰县活龙坪乡水坝小学"
+		}
+	]
+}

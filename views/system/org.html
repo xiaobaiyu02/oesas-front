@@ -1,0 +1,108 @@
+<div class="view-content">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#org-area">学区</a></li>
+		<li><a href="#org-school-type">学校类型</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="org-area" class="tab-pane active fade in" ng-controller="SchoolAreaOrganizationController">
+			<div class="view-toolbar form-inline">
+				<button class="btn btn-primary" ng-click="addSchoolArea()">新增</button>
+				<button class="btn btn-primary" ng-click="deleteSchoolArea()" ng-disabled="!hasSelected()">删除</button>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input type="text" class="form-control" name="search" ng-model="search" placeholder="搜索">
+					</div>
+				</div>
+				<div class="pull-right">
+					<pagesize></pagesize>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+						<thead>
+							<th>
+							<label class="checkbox">
+								<input type="checkbox" ng-model="isSelectAll" ng-change="onSelectAllChange(isSelectAll)">
+								<i></i>
+							</label></th>
+                            <th>序号</th>
+							<th>学区</th>
+							<th>操作</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in records">
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" ng-model="item.selected" ng-change="onItemSelectChange(item)">
+										<i></i>
+									</label>
+                                </td>
+                                <td ng-bind="$index + 1"></td>
+								<td ng-bind="item.node_name"></td>
+								<td><a href="javascript:void(0);" ng-click="modifySchoolArea(item)">修改</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="view-toolbar">
+				<div class="pull-right">
+					<pager></pager>
+				</div>
+				<page-info></page-info>
+			</div>
+		</div>
+		<div id="org-school-type" class="tab-pane fade" ng-controller="SchoolTypeOrganizationController">
+			<div class="view-toolbar form-inline">
+				<button class="btn btn-primary" ng-click="addSchoolType()">新增</button>
+				<button class="btn btn-primary" ng-click="deleteSchoolType()" ng-disabled="!hasSelected()">删除</button>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input type="text" class="form-control" name="search" ng-model="search" placeholder="搜索">
+					</div>
+				</div>
+				<div class="pull-right">
+					<pagesize></pagesize>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+						<thead>
+							<th>
+							<label class="checkbox">
+								<input type="checkbox" ng-model="isSelectAll" ng-change="onSelectAllChange(isSelectAll)">
+								<i></i>
+							</label></th>
+                            <th>序号</th>
+							<th>学校类型</th>
+							<th>操作</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in records">
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" ng-model="item.selected" ng-change="onItemSelectChange(item)">
+										<i></i>
+									</label>
+								</td>
+                                <td ng-bind="$index + 1"></td>
+								<td ng-bind="item.name"></td>
+								<td><a href="javascript:void(0);" ng-click="modifySchoolType(item)">修改</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="view-toolbar">
+				<div class="pull-right">
+					<pager></pager>
+				</div>
+				<page-info></page-info>
+			</div>
+		</div>
+	</div>
+</div>

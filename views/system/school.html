@@ -1,0 +1,60 @@
+<div class="view-content" ng-controller="SchoolController">
+	<div class="view-toolbar form-inline">
+		<button class="btn btn-primary" ng-click="addSchool()">新增</button>
+		<button class="btn btn-primary" ng-click="deleteSchool()" ng-disabled="!hasSelected()">删除</button>
+		<school-name></school-name>
+		<div class="pull-right">
+			<pagesize></pagesize>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+				<thead>
+					<th>
+					<label class="checkbox">
+						<input type="checkbox" ng-model="isSelectAll" ng-change="onSelectAllChange(isSelectAll)">
+						<i></i>
+					</label></th>
+                    <th>序号</th>
+					<th>学校名称</th>
+					<th>主机IP</th>
+					<th>学区</th>
+					<th>学校类别</th>
+					<th>连接状态</th>
+					<th>操作</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in records">
+						<td>
+							<label class="checkbox">
+								<input type="checkbox" ng-model="item.selected" ng-change="onItemSelectChange(item)">
+								<i></i>
+							</label>
+                        </td>
+                        <td ng-bind="$index + 1"></td>
+						<td ng-bind="item.node_name"></td>
+						<td ng-bind="item.controller_ip"></td>
+						<td ng-bind="item.parent.node_name"></td>
+						<td ng-bind="item.school_type.name"></td>
+						<td>
+							<img ng-if="item.connecting" src="/static/images/loading.gif">
+							<span ng-if="!item.connecting" ng-bind="item.status"></span>
+						</td>
+						<td>
+							<a href="javascript:void(0);" ng-click="modifySchool(item)">修改</a>
+							<a ng-if="!item.connecting" href="javascript:void(0);" ng-click="testConnection(item)">测试连接</a>
+							<span ng-if="item.connecting">正在连接</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="view-toolbar">
+		<div class="pull-right">
+			<pager></pager>
+		</div>
+		<page-info></page-info>
+	</div>
+</div>

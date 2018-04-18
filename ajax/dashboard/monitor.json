@@ -1,0 +1,211 @@
+{
+	"code": 0,
+	"data": {
+		"cpu": {
+			"guest": 0.4,
+			"guest_nice": 0.0,
+			"idle": 82.3,
+			"iowait": 0.0,
+			"irq": 0.0,
+			"nice": 0.0,
+			"softirq": 0.0,
+			"steal": 0.0,
+			"system": 0.8,
+			"user|10-20.1-99": 1
+		},
+		"disk": {
+			"sda1": {
+				"mount_point": "/boot",
+				"read_rate|1024-102400": 1,
+				"total": 520794112,
+				"used": 132968448,
+				"write_rate": 1024
+			},
+			"sda2": {
+				"mount_point": "/",
+				"read_rate|10240-1024000": 1,
+				"total": 321965260800,
+				"used": 58938527744,
+				"write_rate": 10240
+			},
+			"sda3": {
+				"mount_point": "/opt/ssd",
+				"read_rate|102400-10240000": 1,
+				"total": 321965260800,
+				"used": 38018600960,
+				"write_rate": 40960
+			}
+		},
+		"mem": {
+			"active": 11404541952,
+			"available": 55435960320,
+			"buffers": 958464,
+			"cached": 398983168,
+			"free|6752104857-57392891289": 55435960320,
+			"inactive": 237182976,
+			"percent": 17.9,
+			"total": 67521048576,
+			"used": 12085088256
+		},
+		"net": {
+			"eth0": {
+				"duplex": "full",
+				"ipv4": [
+					{
+						"addr": "10.1.41.188",
+						"broadcast": "10.1.47.255",
+						"netmask": "255.255.248.0"
+					}
+				],
+				"ipv6": [],
+				"isup": true,
+				"mac": [
+					"00:1e:67:9c:8f:93"
+				],
+				"mtu": "1500",
+				"recv_rate|1024-102400": 1,
+				"sent_rate|1024-102400": 1,
+				"speed": "1000"
+			},
+			"eth1": {
+				"duplex": null,
+				"ipv4": [],
+				"ipv6": [],
+				"isup": false,
+				"mac": [
+					"00:1e:67:9c:8f:94"
+				],
+				"mtu": "1500",
+				"recv_rate|1024-10240": 1,
+				"sent_rate|1024-10240": 1,
+				"speed": null
+			},
+			"eth2": {
+				"duplex": null,
+				"ipv4": [],
+				"ipv6": [],
+				"isup": false,
+				"mac": [
+					"00:1e:67:9c:8f:95"
+				],
+				"mtu": "1500",
+				"recv_rate|1024-102400": 1,
+				"sent_rate|1024-102400": 1,
+				"speed": null
+			},
+			"eth3": {
+				"duplex": null,
+				"ipv4": [],
+				"ipv6": [],
+				"isup": false,
+				"mac": [
+					"00:1e:67:9c:8f:96"
+				],
+				"mtu": "1500",
+				"recv_rate|1024-102400": 1,
+				"sent_rate|1024-102400": 1,
+				"speed": null
+			}
+		},
+		"processs_list": [
+			{
+				"cmdline": [
+					"/usr/bin/python2",
+					"/usr/bin/auxo-node",
+					"--config-file=/etc/auxo/auxo.conf",
+					"--log-file=/var/log/auxo/auxo-node.log"
+				],
+				"cpu_percent": 55.1,
+				"cpu_times": [
+					76.13,
+					89.94
+				],
+				"create_time": 1472440466.86,
+				"cwd": "/",
+				"exe": "/usr/bin/python2.7",
+				"gids": [
+					0,
+					0,
+					0
+				],
+				"io_counters": [
+					1921223,
+					114943,
+					389120,
+					2576384
+				],
+				"ionice": [
+					0,
+					0
+				],
+				"memory_info": [
+					44126208,
+					419868672
+				],
+				"memory_percent": 0.06535178130465887,
+				"name": "auxo-node",
+				"nice": 0,
+				"num_fds": 14,
+				"num_threads": 1,
+				"pid": 1893,
+				"ppid": 1,
+				"status": "running",
+				"terminal": null,
+				"uids": [
+					0,
+					0,
+					0
+				],
+				"username": "root"
+			},
+			{
+				"cmdline": [
+					"/usr/sbin/httpd",
+					"-DFOREGROUND"
+				],
+				"cpu_percent": 29.9,
+				"cpu_times": [
+					23.53,
+					0.24
+				],
+				"create_time": 1472450371.68,
+				"cwd": "/",
+				"exe": "/usr/sbin/httpd",
+				"gids": [
+					48,
+					48,
+					48
+				],
+				"io_counters": [
+					6378,
+					316,
+					0,
+					40960
+				],
+				"ionice": [
+					0,
+					4
+				],
+				"memory_info": [
+					89899008,
+					529928192
+				],
+				"memory_percent": 0.13314219772344313,
+				"name": "httpd",
+				"nice": 0,
+				"num_fds": 20,
+				"num_threads": 1,
+				"pid": 43166,
+				"ppid": 2940,
+				"status": "sleeping",
+				"terminal": null,
+				"uids": [
+					48,
+					48,
+					48
+				],
+				"username": "apache"
+			}
+		]
+	}
+}

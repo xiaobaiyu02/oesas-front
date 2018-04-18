@@ -1,0 +1,23 @@
+{
+	"tree": [{
+        "id": 1,
+        "node_name": "全部",
+        "node_type": "area",
+        "children|9": [
+            {
+                "id|+1": 2,
+                "node_name|+1": ["活龙坪乡", "龙坪乡", "唐崖镇", "丁赛乡", "咸丰县", "高乐山镇", "朝阳寺镇", "高乐山镇", "坪坝营镇"],
+                "node_type": "area",
+                "children|3-8": [
+                    {
+                        "id|+1": 11,
+                        "node_name": "@cword(4,6)学校",
+                        "node_type": "school",
+                        "controller_ip": "@ip"
+                    }
+                ],
+                "controller_ip": "@ip"
+            }
+        ]
+    }]
+}

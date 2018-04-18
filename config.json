@@ -1,0 +1,24 @@
+{
+	"page_prefix": "/",
+	"page_directory": "./pages",
+	"view_prefix": "/views",
+	"view_directory": "./views",
+	"static_prefix": "/static",
+	"static_directory": "./static",
+	"server": {
+		"host": "127.0.0.1",
+		"port": 3000
+	},
+	"bundle": {
+		"app": {
+			"src": "./static/js/app.js",
+			"dest": "./static/js/app.bundle.js",
+			"destMin": "./static/js/app.bundle.min.js"
+		},
+		"login": {
+			"src": "./static/js/login.js",
+			"dest": "./static/js/login.bundle.js",
+			"destMin": "./static/js/login.bundle.min.js"
+		}
+	}
+}

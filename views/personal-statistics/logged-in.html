@@ -1,0 +1,154 @@
+<div class="view-content">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#by-school-area">按学区统计</a></li>
+		<li><a href="#by-school-type">按学校类型统计</a></li>
+		<li><a href="#by-school">按学校统计</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="by-school-area" class="tab-pane active fade in" ng-controller="PersonalLogStatisticsByAreaController">
+			<div class="view-toolbar form-inline">
+				<time-range></time-range>
+				<div class="form-group mydatepicker">
+					<label>开始：</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" date-picker data-date-format="yyyy-mm-dd" data-date-language="zh-CN" readonly ng-model="timebegin" ng-focus="tryShowPicker('timebegin')"/>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+				</div>
+				<div class="form-group mydatepicker">
+					<label>结束：</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" date-picker data-date-format="yyyy-mm-dd" data-date-language="zh-CN" readonly ng-model="timeend" ng-focus="tryShowPicker('timeend')"/>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+				</div>
+				<button class="btn btn-primary" ng-click="reload()">查询</button>
+				<div class="pull-right">
+					<pagesize></pagesize>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped table-condensed table-hover">
+				<thead>
+					<th>序号</th>
+					<th>学区</th>
+					<th>个人桌面登录总次数</th>
+					<th>终端数量</th>
+					<th>平均每台终端登录个人桌面次数</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in records">
+						<td ng-bind="$index + 1"></td>
+						<td ng-bind="item.area"></td>
+						<td ng-bind="item.login_number"></td>
+						<td ng-bind="item.client_cnt"></td>
+						<td ng-bind="item.avg_login_number"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="view-toolbar">
+				<div class="pull-right">
+					<pager></pager>
+				</div>
+				<page-info></page-info>
+			</div>
+		</div>
+		<div id="by-school-type" class="tab-pane fade" ng-controller="PersonalLogStatisticsBySchoolTypeController">
+			<div class="view-toolbar form-inline">
+				<time-range></time-range>
+				<div class="form-group mydatepicker">
+					<label>开始：</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" date-picker data-date-format="yyyy-mm-dd" data-date-language="zh-CN" readonly ng-model="timebegin" ng-focus="tryShowPicker('timebegin')"/>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+				</div>
+				<div class="form-group mydatepicker">
+					<label>结束：</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" date-picker data-date-format="yyyy-mm-dd" data-date-language="zh-CN" readonly ng-model="timeend" ng-focus="tryShowPicker('timeend')"/>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+				</div>
+				<school-area></school-area>
+				<button class="btn btn-primary" ng-click="reload()">查询</button>
+				<div class="pull-right">
+					<pagesize></pagesize>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped table-condensed table-hover">
+				<thead>
+					<th>序号</th>
+					<th>学校类型</th>
+					<th>个人桌面登录总次数</th>
+					<th>终端数量</th>
+					<th>平均每台终端登录个人桌面次数</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in records">
+						<td ng-bind="$index + 1"></td>
+						<td ng-bind="item.school_type"></td>
+						<td ng-bind="item.login_number"></td>
+						<td ng-bind="item.client_cnt"></td>
+						<td ng-bind="item.avg_login_number"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="view-toolbar">
+				<div class="pull-right">
+					<pager></pager>
+				</div>
+				<page-info></page-info>
+			</div>
+		</div>
+		<div id="by-school" class="tab-pane fade" ng-controller="PersonalLogStatisticsBySchoolController">
+			<div class="view-toolbar form-inline">
+				<time-range></time-range>
+				<div class="form-group mydatepicker">
+					<label>开始：</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" date-picker data-date-format="yyyy-mm-dd" data-date-language="zh-CN" readonly ng-model="timebegin" ng-focus="tryShowPicker('timebegin')"/>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+				</div>
+				<div class="form-group mydatepicker">
+					<label>结束：</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" date-picker data-date-format="yyyy-mm-dd" data-date-language="zh-CN" readonly ng-model="timeend" ng-focus="tryShowPicker('timeend')"/>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+				</div>
+				<school-area></school-area>
+				<button class="btn btn-primary" ng-click="reload()">查询</button>
+				<div class="pull-right">
+					<pagesize></pagesize>
+				</div>
+			</div>
+			<table class="table table-bordered table-striped table-condensed table-hover">
+				<thead>
+					<th>序号</th>
+					<th>学校名称</th>
+					<th>个人桌面登录总次数</th>
+					<th>终端数量</th>
+					<th>平均每台终端登录个人桌面次数</th>
+					<!-- <th>学区</th> -->
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in records">
+						<td ng-bind="$index + 1"></td>
+						<td ng-bind="item.school_name"></td>
+						<td ng-bind="item.login_number"></td>
+						<td ng-bind="item.client_cnt"></td>
+						<td ng-bind="item.avg_login_number"></td>
+						<!-- <td ng-bind="item.area"></td> -->
+					</tr>
+				</tbody>
+			</table>
+			<div class="view-toolbar">
+				<div class="pull-right">
+					<pager></pager>
+				</div>
+				<page-info></page-info>
+			</div>
+		</div>
+	</div>
+</div>

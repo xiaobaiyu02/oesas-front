@@ -1,0 +1,43 @@
+<div class="view-content" ng-controller="RemoteMaintainController">
+	<div class="view-content-left">
+		<group-tree></group-tree>
+	</div>
+	<div class="view-content-center">
+		<div class="view-toolbar form-inline">
+			<school-type></school-type>
+			<school-name></school-name>
+			<div class="pull-right">
+				<pagesize></pagesize>
+			</div>
+		</div>
+		<table class="table table-bordered table-striped table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>学校名称</th>
+					<th>主机IP</th>
+					<th>学区</th>
+					<th>学校类别</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in records">
+					<td ng-bind="$index + 1"></td>
+					<td ng-bind="item.school_name"></td>
+					<td ng-bind="item.controller_ip"></td>
+					<td ng-bind="item.area"></td>
+					<td ng-bind="item.school_type"></td>
+					<td><a ng-href="http://{{item.controller_ip}}" target="_blank">维护</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="view-toolbar">
+			<div class="pull-right">
+				<pager></pager>
+			</div>
+			<page-info></page-info>
+		</div>
+	</div>
+	
+</div>

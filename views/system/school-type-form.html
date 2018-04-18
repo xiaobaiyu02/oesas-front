@@ -1,0 +1,34 @@
+<div class="modal fade" tabindex="-1" role="dialog" ng-controller="SchoolTypeFormController">
+  <div class="modal-dialog modal-sm" role="document" style="width: 400px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">新增学校类型</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <input type="hidden" name="id" ng-model="id">
+          <div class="row">
+            <div class="form-group">
+              <label class="control-label col-md-3">学校类型<b>*</b>：</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" rel="tooltip" name="name" ng-model="name" ng-required="true" ng-minlength="2" ng-maxlength="20" ng-disabled="loading">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">描述：</label>
+              <div class="col-md-9">
+                <textarea class="form-control" rel="tooltip" name="desc" ng-model="desc" ng-maxlength="30" ng-disabled="loading" rows="4"></textarea>
+                <div class="help-block">最多 30 个字符</div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-class="{'btn-loading': loading}" ng-disabled="loading?true:!isValid()" ng-click="submit()">确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

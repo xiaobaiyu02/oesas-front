@@ -1,0 +1,48 @@
+<div class="view-content" ng-controller="WarningLogController">
+	<div class="view-content-left">
+		<group-tree></group-tree>
+	</div>
+	<div class="view-content-center">
+		<div class="view-toolbar form-inline">
+			<school-type></school-type>
+			<school-name></school-name>
+			<div class="pull-right">
+				<pagesize></pagesize>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<p>告警信息共 {{count}} 条</p>
+				<table class="table table-bordered table-striped table-condensed table-hover">
+					<thead>
+						<th>序号</th>
+						<th>学校名称</th>
+						<th>主机</th>
+						<th>内容</th>
+						<th>时间</th>
+						<th>学区</th>
+						<th>学校类别</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in logs">
+							<td ng-bind="$index + 1"></td>
+							<td ng-bind="item.school_name"></td>
+							<td ng-bind="item.controller_ip"></td>
+							<td ng-bind="item.content"></td>
+							<td ng-bind="item.time"></td>
+							<td ng-bind="item.area"></td>
+							<td ng-bind="item.node_type"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="view-toolbar">
+			<div class="pull-right">
+				<pager></pager>
+			</div>
+			<page-info></page-info>
+		</div>
+	</div>
+	
+</div>

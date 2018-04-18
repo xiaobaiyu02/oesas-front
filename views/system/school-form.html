@@ -1,0 +1,88 @@
+<div class="modal fade" tabindex="-1" role="dialog" ng-controller="SchoolFormController">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">新增学校</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <input type="hidden" name="id" ng-model="id">
+          <input type="hidden" name="managers" ng-model="managers">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">学校名称<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" rel="tooltip" name="node_name" ng-model="node_name" ng-required="true" ng-minlength="2" ng-maxlength="20" ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">主机IP<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" rel="tooltip" name="controller_ip" ng-model="controller_ip" ng-required="true" v-ip ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">选择学区<b>*</b>：</label>
+              <div class="col-md-8">
+                <select class="form-control" rel="tooltip" name="parent" ng-model="parent" ng-required="true" ng-options="a.node_name for a in areas" ng-disabled="loading" v-objectid></select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">选择类别<b>*</b>：</label>
+              <div class="col-md-8">
+                <select class="form-control" rel="tooltip" name="school_type" ng-model="school_type" ng-required="true" ng-options="t.name for t in types" ng-disabled="loading" v-objectid></select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">管理用户名<b>*</b>：</label>
+              <div class="col-md-8">
+                <input class="form-control" rel="tooltip" name="username" ng-model="username" ng-required="true" ng-minlength="2" ng-maxlength="20" ng-disabled="loading" autocomplete="false"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">管理密码<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="password" class="form-control" rel="tooltip" name="password" ng-model="password" ng-required="true" ng-minlength="6" ng-maxlength="20" ng-disabled="loading" autocomplete="false"/>
+              </div>
+            </div>
+          </div>
+<!--
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group" style="margin-right: 0px;">
+              <label class="control-label col-md-3">校管理平台验证码<b>*</b>：</label>
+              <div class="input-group col-md-9">
+                <input type="text" class="form-control" rel="tooltip" name="code" ng-model="code" ng-required="true" ng-disabled="loading">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-disabled="loading" ng-click="testConnection()">连接测试</button>
+                </span>
+              </div>
+            </div>
+            <p ng-show="testResult" style="text-align:center;color: red;" ng-bind="testResult"></p>
+          </div>
+          -->
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-class="{'btn-loading': loading}" ng-disabled="loading?true:!isValid()" ng-click="submit()">确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

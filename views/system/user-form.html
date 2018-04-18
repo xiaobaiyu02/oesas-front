@@ -1,0 +1,73 @@
+<div class="modal fade" tabindex="-1" role="dialog" ng-controller="UserFormController">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">新增用户</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <input type="hidden" ng-model="id">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">用户名<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" rel="tooltip" name="username" ng-model="username" ng-required="true" ng-minlength="2" ng-maxlength="20" ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">姓名<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" rel="tooltip" name="full_name" ng-model="full_name" ng-required="true" ng-minlength="2" ng-maxlength="20" ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">密码<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="password" class="form-control" rel="tooltip" name="password" ng-model="password" ng-required="true" ng-minlength="6" ng-maxlength="20" ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">确认密码<b>*</b>：</label>
+              <div class="col-md-8">
+                <input type="password" class="form-control" rel="tooltip" name="password2" ng-model="password2" ng-required="true" ng-minlength="6" ng-maxlength="20" ng-disabled="loading" v-pwdmatch="password">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">电子邮箱：</label>
+              <div class="col-md-8">
+                <input type="email" class="form-control" rel="tooltip" name="email" ng-model="email" ng-maxlength="50" ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">联系电话：</label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" rel="tooltip" name="tel" ng-model="tel" ng-maxlength="30" v-number ng-disabled="loading">
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-class="{'btn-loading': loading}" ng-disabled="loading?true:!isValid()" ng-click="submit()">确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

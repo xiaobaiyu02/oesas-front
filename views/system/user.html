@@ -1,0 +1,56 @@
+<div class="view-content" ng-controller="UserController">
+	<div class="view-toolbar form-inline">
+		<button class="btn btn-primary" ng-click="addUser()">新增</button>
+		<button class="btn btn-primary" ng-click="deleteUser()" ng-disabled="!hasSelected()">删除</button>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input type="text" class="form-control" name="search" ng-model="search" placeholder="搜索">
+            </div>
+        </div>
+		<div class="pull-right">
+			<pagesize></pagesize>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+				<thead>
+					<th>
+					<label class="checkbox">
+						<input type="checkbox" ng-model="isSelectAll" ng-change="onSelectAllChange(isSelectAll)">
+						<i></i>
+					</label></th>
+                    <th>序号</th>
+					<th>用户名</th>
+					<th>姓名</th>
+					<th>电子邮箱</th>
+					<th>联系电话</th>
+					<th>操作</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in records">
+						<td>
+							<label class="checkbox">
+								<input type="checkbox" ng-model="item.selected" ng-change="onItemSelectChange(item)">
+								<i></i>
+							</label>
+                        </td>
+                        <td ng-bind="$index + 1"></td>
+						<td ng-bind="item.username"></td>
+						<td ng-bind="item.full_name"></td>
+						<td ng-bind="item.email"></td>
+						<td ng-bind="item.tel"></td>
+						<td><a href="javascript:void(0);" ng-click="modifyUser(item)">修改</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="view-toolbar">
+		<div class="pull-right">
+			<pager></pager>
+		</div>
+		<page-info></page-info>
+	</div>
+</div>

@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+
+var browserify = require('browserify');
+var config = require('../config');
+var path = require('path');
+var fs = require('fs');
+
+var child_process = require('child_process');
+
+var projectRoot = path.join(__dirname, '../');
+
+function runBundle(src, output, cfg) {
+	return new Promise(function(resolve, reject){
+		var builder = browserify(src);
+		var stream = builder.bundle();
+		stream.pipe(fs.createWriteStream(output));
+		stream.on('end', function(){
+			console.log('build', output.replace(projectRoot, ''), 'success');
+			resolve();
+		});
+		stream.on('error', reject);
+	});
+}
+
+function main(){
+	var bundle = config.bundle, key, obj, bundlefile, src, tasks = [];
+	for(key in bundle) {
+		obj = bundle[key];
+		src = obj.src;
+		bundlefile = obj.dest;
+		if(!path.isAbsolute(src)) {
+			src = path.join(projectRoot, src);
+		}
+		if(!path.isAbsolute(bundlefile)) {
+			bundlefile = path.join(projectRoot, bundlefile);
+		}
+		tasks.push(runBundle(src, bundlefile, obj));
+	}
+	// 所有的 promise 成功后运行 min
+	Promise.all(tasks).then(function(){
+		if(fs.existsSync(path.join(__dirname, 'merge-views.js'))) {
+			console.log("合并模板文件");
+			return mergeViews();
+		}
+	}).then(function(){
+		console.log('压缩 JS 代码');
+		return new Promise(function(resolve, reject){
+			var p = child_process.fork(path.join(__dirname, 'min-js'));
+			p.on('exit', function(){
+				resolve();
+			});
+		});
+	}).then(function(){
+		console.log('压缩 CSS/HTML 代码');
+		return new Promise(function(resolve, reject){
+			var p = child_process.fork(path.join(__dirname, 'min-html.js'));
+			p.on('exit', function(){
+				resolve();
+			});
+		});
+	}).catch(function(err){
+		throw err;
+	});
+}
+
+function mergeViews() {
+	return new Promise(function(resolve, reject){
+		var p = child_process.fork(path.join(__dirname, 'merge-views.js'));
+		p.on('exit', function(){
+			// 不管成功或者失败
+			resolve();
+		});
+	});
+}
+
+if(require.main === module) {
+	main();
+}
